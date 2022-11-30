@@ -34,7 +34,7 @@
         <div class="menu-navegacao container flex-box">
             <!-- Logo -->
             <a href="<?php echo get_home_url(); ?>" class="logo">
-                <img src="<?php echo get_stylesheet_directory_uri(); ?>/images/logo/logo-sonotto-pro.svg" width="205px" alt="<?php echo get_home_url(); ?>">
+                <img src="<?php echo get_stylesheet_directory_uri(); ?>/images/logo/logo-sonotto-pro.svg" width="250px" alt="<?php echo get_home_url(); ?>">
             </a>
             <div class="menu-box">
 
