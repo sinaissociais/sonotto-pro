@@ -1,17 +1,25 @@
+/* 
+    Fontes 
+*/
+
 @import url("https://use.typekit.net/bih4vih.css");
 
+/* 
+    Configurações Principais 
+*/
+
 :root {
-  
+
     /* Cores */
-     --cor-principal: #1798af;
-     --cor-principal-sombra: #148399;
-     --cor-secundaria: #d9a200;
+
+     --cor-principal: #5c5c5c !important;
+     --cor-principal-sombra: #f6bf27;
+     --cor-secundaria: #616161;
      --cor-texto: #616161;
      --cor-complementar: rgb(254, 236, 203);
      --cor-complementar-sombra: rgb(210, 186, 142);
      --cor-tercearia: #ffd65c;
      --cor-cinza: #4f4f4f;
-  
   
      --cor-suave: #F7F9FF;
      --cor-escura: #20385D;
@@ -22,7 +30,8 @@
   
     /* Container */
     --size-container: 1140px;
-    --size-container-page: 850px;
+    --size-container-page: 960px;
+    --size-container-small: 800px;
     --size-container-super: 1460px;
       
      /* Texto */
@@ -31,4 +40,35 @@
      /* Media Querys */
      --media-tablet: ;
      --media-mobile: 600px;
+
+}
+
+
+header {
+    /* background-color gradient 58a96e to 2f6f40 */
+    background: #58a96e;
+    background: -moz-linear-gradient(top, #58a96e 0%, #2f6f40 100%);
+    background: -webkit-linear-gradient(top, #58a96e 0%, #2f6f40 100%);
+    background: linear-gradient(to right, #58a96e 0%, #2f6f40 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#58a96e', endColorstr='#2f6f40', GradientType=0 );
+    color: white;
+}
+
+nav li a {
+    color: #ffffff;
+} 
+
+.woocommerce-breadcrumb {
+    background-color: var(--cor-principal);
+}
+
+.menu-pesquisa input {
+    background-color: #649d74;
+}
+
+.shop-icons a {
+    color: #ffffff;
+}
+.menu-icones a {
+    color: #ffffff;
 }
