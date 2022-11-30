@@ -1,0 +1,34 @@
+@import url("https://use.typekit.net/bih4vih.css");
+
+:root {
+  
+    /* Cores */
+     --cor-principal: #1798af;
+     --cor-principal-sombra: #148399;
+     --cor-secundaria: #d9a200;
+     --cor-texto: #616161;
+     --cor-complementar: rgb(254, 236, 203);
+     --cor-complementar-sombra: rgb(210, 186, 142);
+     --cor-tercearia: #ffd65c;
+     --cor-cinza: #4f4f4f;
+  
+  
+     --cor-suave: #F7F9FF;
+     --cor-escura: #20385D;
+     --cor-sombra: #284065;
+     --cor-diferencial: #446BC4;
+     --cor-tercearia-titulos: #B2BFE2;
+     --cor-cinza-titulos: #BEBEBE;
+  
+    /* Container */
+    --size-container: 1140px;
+    --size-container-page: 850px;
+    --size-container-super: 1460px;
+      
+     /* Texto */
+     --fonte-principal: acumin-pro-wide, sans-serif;
+     
+     /* Media Querys */
+     --media-tablet: ;
+     --media-mobile: 600px;
+}
