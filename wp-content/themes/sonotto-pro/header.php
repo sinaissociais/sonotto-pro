@@ -21,16 +21,17 @@
 </head>
 <body>    
     <header>
-        <div class="menu-infos">
-            <div class="container">
-                <div class="menu-infos-box">
-                    <div>
-                        <span>Compre através do nosso WhatsApp  <strong>(11) 9 4503-9098</strong></span>
-                        <i class="fa fa-whatsapp"></i>
+        <?php if ( ! is_user_logged_in() ) { ?>
+            <div class="menu-infos">
+                <div class="container">
+                    <div class="menu-infos-box">
+                        <div>
+                            <span>Cadastre-se e acesse preços e condições exclusivas  <a href="<?php echo get_home_url(); ?>/cadastro">Cadastrar</a></span>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
+        <?php } ?>
         <div class="menu-navegacao container flex-box">
             <!-- Logo -->
             <a href="<?php echo get_home_url(); ?>" class="logo">
@@ -42,32 +43,33 @@
                     <div class="menu-pesquisa">
                         <?php get_search_form(); ?> 
                     </div>
-
-                    <div class="menu-icones">
-                        <!-- ícone usuário para login -->
-                        <a href="<?php echo get_home_url(); ?>/login" class="menu-login">
-                            <i class="fa fa-user"></i>
-                        </a>
-                    </div>
-
-                    <div class="menu-icones">
-                        <!-- Shop Icons -->
-                        <div class="shop-icons">
-                            <a href="https://instagram.com/sonotto" target="_blank">
-                                <i class="fa fa-instagram"></i>
+                    <?php if ( is_user_logged_in() ) { ?>
+                        <div class="menu-icones">
+                            <!-- ícone usuário para login -->
+                            <a href="<?php echo get_home_url(); ?>/minha-conta" class="menu-login">
+                                Minha conta <i class="fa fa-user"></i>
                             </a>
                         </div>
-                    </div>
+                    <?php } else { ?>
+                        <!-- ícone usuário para login -->
+                        <a href="<?php echo get_home_url(); ?>/login" class="menu-login">
+                            Fazer login <i class="fa fa-user"></i>
+                        </a>
+                    <?php } ?>
+                    
                     <!-- ícone de carrinho que leva ao carrinho woocoommerce -->
-                    <div class="menu-icones">
-                        <!-- se plugin woocommerce estive ativo então exibir div -->
-                        <?php if ( class_exists( 'WooCommerce' ) ) { ?>
-                            <a href="<?php echo get_home_url(); ?>/carrinho">
-                                <i class="fa fa-shopping-cart"></i>
-                                <span class="carrinho-quantidade"><?php echo WC()->cart->get_cart_contents_count(); ?></span>
-                            </a>
-                        <?php } ?>
-                    </div>
+                    <!-- se usuário estiver logado -->
+                    <?php if ( is_user_logged_in() ) { ?>
+                        <div class="menu-icones">
+                            <!-- se plugin woocommerce estive ativo então exibir div -->
+                            <?php if ( class_exists( 'WooCommerce' ) ) { ?>
+                                <a href="<?php echo get_home_url(); ?>/carrinho">
+                                    <i class="fa fa-shopping-cart"></i>
+                                    <span class="carrinho-quantidade"><?php echo WC()->cart->get_cart_contents_count(); ?></span>
+                                </a>
+                            <?php } ?>
+                        </div>
+                    <?php } ?>
                 </div>
                 
                 <nav>

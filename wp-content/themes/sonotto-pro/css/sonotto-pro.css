@@ -57,6 +57,9 @@ header {
 nav li a {
     color: #ffffff;
 } 
+nav li a:hover {
+    color: var(--cor-complementar);
+}
 
 .woocommerce-breadcrumb {
     background-color: var(--cor-principal);
@@ -71,4 +74,149 @@ nav li a {
 }
 .menu-icones a {
     color: #ffffff;
+}
+
+.pagina-servico nav li a {
+    color: var(--cor-cinza);
+}
+
+
+/* Distribuidor */
+
+.distribuidor {
+    background-color: var(--cor-complementar);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    padding: 15px;
+    font-weight: 700;
+    font-size: 12px;
+    gap: 10px;
+}
+.distribuidor a {
+    color: var(--cor-texto);
+    border: 1px solid var(--cor-texto);
+    border-radius: 9999px;
+    box-shadow: none;
+    cursor: pointer;
+    display: inline-block;
+    padding: calc(0.25em + 2px) calc(1em + 2px);
+    text-align: center;
+    text-decoration: none;
+    word-break: break-word;
+    box-sizing: border-box;
+    background-color: transparent;
+}
+.distribuidor a:hover {
+    background-color: var(--cor-texto);
+    color: var(--cor-complementar);
+}
+
+/* Menu Infos */
+
+.menu-infos {
+    color: white;
+    padding: 5px;
+    background-color: #466b50;
+    border-bottom: 1px solid #438c57;
+}
+
+.menu-infos a {
+    color: white;
+    border: 2px solid white;
+    border-radius: 9999px;
+    box-shadow: none;
+    cursor: pointer;
+    display: inline-block;
+    padding: calc(0.1em + 2px) calc(1em + 2px);
+    text-align: center;
+    text-decoration: none;
+    word-break: break-word;
+    box-sizing: border-box;
+    background-color: transparent;
+    margin: 0 10px;
+}
+
+.menu-infos a:hover {
+    background-color: white;
+    color: #466b50;
+}
+
+/* Preco no Item */
+
+.distribuicao_mensagem_login {
+    background-color: #AD924D;
+    color: #ffffff;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 35px;
+    align-items: center;
+    border-radius: 0 0 10px 10px;
+}
+.distribuicao_mensagem_login p {
+    font-size: 15px;
+    text-align: center;
+}
+
+.distribuicao_mensagem_login a {
+    background-color: #FFF7E3;
+    color: #AD924D;
+    border: none;
+    border-radius: 9999px;
+    box-shadow: none;
+    cursor: pointer;
+    display: inline-block;
+    padding: calc(0.50em + 2px) calc(2em + 5px);
+    text-align: center;
+    text-decoration: none;
+    word-break: break-word;
+    box-sizing: border-box;
+    font-weight: 500;
+}
+
+.distribuicao_mensagem_login a:hover {
+    background-color: #735b1e;
+    color: #ffffff;
+}
+
+/* Menu Login */
+
+.menu-login {
+    color: white;
+    border-bottom: 2px solid #ffffff;
+    padding-bottom: 5px;
+    margin: 0 20px;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+.menu-login:hover {
+    color: var(--cor-tercearia);
+    border-bottom: 2px solid var(--cor-tercearia);
+}
+
+/* Página Login */
+
+.ajuda-section h2 {
+    color: var(--cor-principal);
+    font-size: 65px;
+    line-height: 70px;
+    text-transform: lowercase;
+    margin-right: 25px;
+    margin-bottom: 0;
+}
+.login-pagina-container input[type=submit]:hover {
+    background-color: #58a96e !important;
+}
+
+/* Página Cadastre-se */
+
+.tf-v1-widget iframe {
+    -webkit-box-shadow: 0px 0px 40px 0px rgba(0 0 0 / 10%);
+    -moz-box-shadow: 0px 0px 40px 0px rgba(0 0 0 / 10%);
+    box-shadow: 0px 0px 40px 0px rgb(0 0 0 / 10%);
+    border-radius: 10px !important;
+
 }
