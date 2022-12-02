@@ -289,7 +289,112 @@ nav li a:hover {
     padding: 0;
 }
 
-/* Slider */
+/* Destaque Serviços */
+.destaque-servicos-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 30px;
+}
+.destaque-servicos {
+    padding-top: 30px;
+    padding-bottom: 60px;
+    background-color: #373737;
+}
+.destaque-servicos-bloco.manutencao-deck {
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    background: linear-gradient(to bottom, #58a96e 0%, #2f6f40 100%);
+}
+
+/* Hero Internas */
+
+.hero-internas-bg {
+    background-color: var(--cor-principal);
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: top;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -999;
+}
+
+.hero-internas img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: top;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -999;
+}
+.hero-internas:before {
+    position: absolute;
+    content: "";
+    height: 100%;
+    width: 100%;
+    top: 0;
+    left: 0;
+    background: linear-gradient(to left, rgba(255,0,0,0) 0%, #373737ad 55%);
+}
+
+/* WooCommerce Tabs Descrição */
+
+.woocommerce-Tabs-panel--description ul {
+    margin-left: 0;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    border-bottom: 0;
+    gap: 35px;
+    font-weight: 400;
+    color: #373737;
+}
+.woocommerce-Tabs-panel--description ul li {
+    border-top: 2px solid var(--cor-principal-sombra);
+    padding-top: 10px;
+    margin-top: 10px;
+}
+
+/* Paginação */
+
+.woocommerce nav.woocommerce-pagination ul li {
+    width: 45px;
+    height: 45px;
+}
+.woocommerce nav.woocommerce-pagination ul li a {
+    color: #373737;
+}
+.woocommerce nav.woocommerce-pagination {
+    text-align: center;
+    border-bottom: none;
+}
+
+/* Box quem somos */
+
+.footer-especialistas-img {
+    height: 500px;
+    object-fit: cover;
+    width: 110%;
+    margin-left: -30%;
+    box-shadow: rgb(0 0 0 / 3%) -4px 3px 20px 8px;
+    border-radius: 0;
+}
+
+/* Botões */
+
+.botao-redondo.branco:hover {
+    background: #649e74;
+    color: white;
+}
+
+.destaque-servicos-bloco .botao-redondo {
+    background-color: #373737;
+}
+
 
 /* Slider */
 
@@ -311,11 +416,10 @@ nav li a:hover {
   align-items: center;
 }
   .slide h2 {
-    font-size: 45px;
-    line-height: 50px;
+    font-size: 35px;
+    line-height: 40px;
     font-weight: 500;
     text-transform: uppercase;
-    letter-spacing: 2px;
   }
   .slide h2 b {
     font-weight: 800;
@@ -349,7 +453,7 @@ nav li a:hover {
     width:100%;
     top:0;
     left:0;
-    background: linear-gradient(to bottom, rgba(255,0,0,0) 0%, var(--cor-principal) 100%);
+    background: linear-gradient(to bottom, rgb(42 42 42 / 23%) 0%, #373737 100%);
   }
 .slide img {
 	width: 100%;
@@ -388,7 +492,7 @@ nav li a:hover {
   background: #27DCEB;
 }
 .bullet.active {
-	border: 2px solid #27DCEB;
+	border: 2px solid #8fe4a6;
   background: transparent;
 }
 
