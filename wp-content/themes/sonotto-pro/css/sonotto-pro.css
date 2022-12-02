@@ -220,3 +220,205 @@ nav li a:hover {
     border-radius: 10px !important;
 
 }
+
+/* Página Minha Conta */
+
+.woocommerce nav {
+    border-bottom: 1px solid #65b47a;
+    margin-bottom: 30px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.woocommerce nav li:hover a {
+    color: #357e49;
+}
+.woocommerce nav li.is-active a {
+    color: #1a5b2c;
+    font-weight: 500;
+    border-bottom: 2px solid #1a5b2c;
+}
+.woocommerce nav li:after {
+    bottom: -2px;
+    background-color: #246034;
+}
+
+.woocommerce-Address-title {
+    padding: 25px;
+    border-radius: 10px;
+    margin-bottom: 15px;
+}
+
+.woocommerce-Address-title a {
+    color: white;
+    border: 2px solid white;
+    padding: 5px 15px;
+    border-radius: 100px;
+}
+
+/* Ajustes nos botões */
+.woocommerce a.button {
+    font-size: 100%;
+    margin: 0;
+    line-height: 1;
+    cursor: pointer;
+    position: relative;
+    text-decoration: none;
+    overflow: visible;
+    padding: 15px 30px;
+    font-weight: 400;
+    left: auto;
+    color: #ffffff;
+    background-color: #4d9961;
+    border: 0;
+    display: inline-block;
+    background-image: none;
+    box-shadow: none;
+    text-shadow: none;
+    border-radius: 100px;
+}
+.hero-internas .botao-redondo {
+    background-color: var(--cor-cinza);
+    color: white;
+}
+.menu-pesquisa > form > div {
+    background-color: #649e74;
+    color: white;
+    border-radius: 100px;
+    padding: 0;
+}
+
+/* Slider */
+
+/* Slider */
+
+.slider {
+	overflow: hidden; /* prevents the default scrolling behaviour on overflowing elements and hides the slides that are overflowing on the left and on the right side of the slider */
+  position: relative;
+}   
+.slide-set {
+	display: flex; /* we use a flexbox as an easy way to size our slides, align them horizontally and prevent them from breaking on new lines */
+}
+.slide {
+	flex: 0 0 100%; /* this translates to: each slide should be full width */
+	position: relative; /* allows us to move our slides left and right */
+
+	left: 0; /* setting an initial value for left so the transition works */
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+  .slide h2 {
+    font-size: 45px;
+    line-height: 50px;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+  }
+  .slide h2 b {
+    font-weight: 800;
+  }
+  .slide span {
+    text-transform: uppercase;
+    letter-spacing: 5px;
+    margin-bottom: 35px;
+  }
+  .slide-content {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    flex-direction: column;
+    color: white;
+    width: 50%;
+  }
+  .slide-content p {
+    font-size: 15px;
+    font-weight: 200;
+    line-height: 25px;
+    max-width: 450px;
+    margin: 25px 0;
+    text-align: center;
+  }
+  .slide:before {
+    position: absolute;
+    content:"";
+    height:100%;
+    width:100%;
+    top:0;
+    left:0;
+    background: linear-gradient(to bottom, rgba(255,0,0,0) 0%, var(--cor-principal) 100%);
+  }
+.slide img {
+	width: 100%;
+  height: 650px;
+  object-fit: cover;
+}
+.slide-set, .bullet-set {
+	padding:0;
+	margin:0;
+	list-style: none;
+}
+
+.bullet-set {
+	position: absolute;
+  bottom: 45px;
+  left: 50%;
+  display: flex;
+  transform: translateX(-50%);
+  align-items: center;
+}
+.bullet {
+	width: 10px;
+	height: 10px;
+
+  cursor: pointer;
+
+	border-radius: 50%; /* makes out bullets round */
+	background: white;
+
+	display: inline-block; /* lays our bullets out horizontally */
+
+	margin: 0 6px; /* spacing the bullets apart so they're not clustered together */
+
+}
+.bullet:hover {
+  background: #27DCEB;
+}
+.bullet.active {
+	border: 2px solid #27DCEB;
+  background: transparent;
+}
+
+@media screen and (max-width: 768px) {
+    .slide-set {
+        height: 70vh;
+      }
+      .slide img {
+        height: 100%;
+        object-fit: cover;
+      }
+      .slide-content {
+        width: 80%;
+      }
+      .bullet-set {
+        bottom: 15px;
+      }
+      .slide-set {
+        touch-action: auto;
+        -ms-touch-action: auto;
+      }
+      .slide span {
+        margin-bottom: 10px;
+      }
+      .slider h2 {
+        font-size: 30px;
+        line-height: 35px;
+      }
+      .slide p {
+        font-size: 12px;
+        line-height: 20px;
+      }
+}

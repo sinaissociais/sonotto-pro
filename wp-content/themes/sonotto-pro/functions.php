@@ -73,7 +73,78 @@
 
     add_action( 'woocommerce_single_product_summary', 'distribuicao_exibir_mensagem', 21 );
 
-    
+    /* Se "_unidade_medida_produto" for "Caixas", então exibe o texto "por caixa" no preço */
 
+    function distribuicao_exibir_preco_por_caixa( $price, $product ) {
+        $unidade_medida_produto = get_post_meta( $product->get_id(), '_unidade_medida_produto', true );
+        if ( $unidade_medida_produto == 'Caixas' ) {
+            $price = $price . ' <i>por caixa</i>';
+        }
+        return $price;
+    }
+
+    add_filter( 'woocommerce_get_price_html', 'distribuicao_exibir_preco_por_caixa', 10, 2 );
+
+    /* Registrar Tipo de Post Slide */
+
+    register_post_type( 'slides',
+        array(
+            'labels' => array(
+                'name'          => __( 'Slides', 'textdomain' ),
+                'singular_name' => __( 'Slide', 'textdomain' )
+            ),
+            'supports' => array('title', 'editor', 'thumbnail', 'excerpt', 'custom-fields'),
+            'public'      => true,
+            'has_archive' => false,
+            'menu_icon'   => 'dashicons-heart',
+        )
+    );
+
+    /* No Post Type "slides" criar um Custom Field com o nome de link de página */
+
+        function add_custom_meta_box() {
+            add_meta_box(
+                'slide_link_slide', // $id
+                'Link do Slide', // $title
+                'show_custom_meta_box', // $callback
+                'slides', // $screen
+                'normal', // $context
+                'high' // $priority
+            );
+        }
+
+        add_action( 'add_meta_boxes', 'add_custom_meta_box' );
+
+        function show_custom_meta_box() {
+            global $post;
+            $meta = get_post_meta( $post->ID, 'link_slide', true ); ?>
+            <input type="text" name="link_slide" id="link_slide" value="<?php echo $meta; ?>">
+            <?php
+        }
+
+        function save_custom_meta( $post_id ) {
+            if ( isset( $_POST['link_slide'] ) ) {
+                update_post_meta( $post_id, 'link_slide', $_POST['link_slide'] );
+            }
+        }
+
+        add_action( 'save_post', 'save_custom_meta' );
+
+
+
+    /* Carrrega JS do Slide */
+    function load_js()
+    {
+        wp_enqueue_script('jquery');
+
+        /* Call slick library */
+        wp_register_script('slick', get_stylesheet_directory_uri() . '/slick/slick.min.js', 'jquery', false, true);
+        wp_enqueue_script('slick');
+
+        wp_register_script('slider', get_stylesheet_directory_uri() . '/js/slider.js', 'jquery', false, true);
+        wp_enqueue_script('slider');
+
+    }
+    add_action('wp_enqueue_scripts', 'load_js');
    
 ?>
