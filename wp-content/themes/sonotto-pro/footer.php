@@ -6,7 +6,7 @@
     <!-- Chat -->
     <div class="footer-chat whatsapp-chat-button">
         <div class="footer-chat-text">Fale com a gente</div>
-        <a href="https://wa.me/5511945039098?text=Vim%20do%20site%20Sonotto" target="_blank" rel="noreferrer noopener"><img class="footer-chat-icon" src="<?php echo get_theme_file_uri();?>/images/social-whatsapp.svg" alt="Fale com a gente" /></a>
+        <a href="https://wa.me/5511945039098?text=Vim%20do%20site%20Sonotto" target="_blank" rel="noreferrer noopener"><img class="footer-chat-icon" src="<?php echo get_template_directory_uri();?>/images/social-whatsapp.svg" alt="Fale com a gente" /></a>
     </div>
 
     <!-- <div data-tf-popover="kLdhPJYc" data-tf-custom-icon="https://images.typeform.com/images/QDwA9Mpvsb3H" data-tf-button-color="#ffd65c" data-tf-notification-days="7" data-tf-tooltip="Oi 👋&nbsp;&nbsp;Como posso te ajudar?" data-tf-chat data-tf-medium="snippet" style="all:unset;"></div><script src="//embed.typeform.com/next/embed.js"></script> -->
