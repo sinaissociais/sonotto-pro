@@ -387,6 +387,13 @@ nav li a:hover {
     margin-top: 10px;
 }
 
+/* Novidades */
+.wp-block-latest-posts.wp-block-latest-posts__list {
+    list-style: none;
+    padding-left: 0;
+    font-style: italic;
+}
+
 /* Paginação */
 
 .woocommerce nav.woocommerce-pagination ul li {
@@ -524,7 +531,12 @@ nav li a:hover {
   background: transparent;
 }
 
+#menu-principal-mobile {
+    display: none;
+}
+
 @media screen and (max-width: 768px) {
+    /* Slide */
     .slide-set {
         height: 70vh;
       }
@@ -553,4 +565,64 @@ nav li a:hover {
         font-size: 12px;
         line-height: 20px;
       }
+
+    /* Menu Distribuidor */
+
+    .menu-pesquisa {
+        display: none;
+    }
+    .icon {
+        display: flex;
+        font-size: 30px;
+        color: #ffffff;
+    }
+    .menu-box {
+        display: flex;
+        flex-direction: row-reverse;
+        justify-content: space-between;
+        padding: 0 20px;
+        width: 100%;
+    }
+    .menu-distribuidor-container {
+        display: none;
+    }
+    .menu-distribuidor {
+        background: #373737;
+        position: sticky;
+        padding: 15px;
+        font-size: 11px;
+    }
+    .menu-dist-box {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: #feeccb;
+        flex-wrap: wrap;
+    }
+    #menu-principal {
+        background-color: #327343;
+    }
+    #menu-principal-a {
+        top: 255px;
+    }
+    #menu-principal-mobile {
+        display: none;
+        position: fixed;
+        top: 255px;
+        width: 100%;
+        height: 100vh;
+        background-color: #327343;
+        right: 0;
+        justify-content: flex-start;
+        flex-flow: column nowrap;
+        z-index: 99999;
+    }
+    nav ul li {
+        margin: 0;
+        border-bottom: 1px solid #55a46a;
+        padding: 5px 25px;
+    }
+    .woocommerce nav {
+        display: none;
+    }
 }

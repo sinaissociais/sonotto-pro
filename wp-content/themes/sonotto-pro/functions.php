@@ -4,6 +4,13 @@
        wp_enqueue_style( 'sonotto-pro', get_stylesheet_directory_uri() . '/css/sonotto-pro.css', array( 'sonotto' ) );
    }
 
+   /* Carregar js na pasta /js/burger.js */
+
+    function carrega_scripts_tema() {
+         wp_enqueue_script( 'burger', get_stylesheet_directory_uri() . '/js/burger-pro.js', array( 'jquery' ), '1.0.0', true );
+    }
+    add_action( 'wp_enqueue_scripts', 'carrega_scripts_tema' );
+
    add_action( 'wp_enqueue_scripts', 'carrega_estilos_tema', PHP_INT_MAX);
 
   /* Desativar barra de Administrador */
@@ -55,6 +62,14 @@
         }
 
         add_action( 'init', 'distribuicao_registrar_menu' );
+
+    // Registrar menu Mobile
+
+        function distribuicao_registrar_menu_mobile() {
+            register_nav_menu( 'menu_mobile', __( 'Menu Mobile', 'sonotto-pro' ) );
+        }
+
+        add_action( 'init', 'distribuicao_registrar_menu_mobile' );
 
     // Se usuário estiver logado, exibir div no header.php
     function distribuicao_exibir_menu_usuario_logado() {

@@ -72,23 +72,53 @@
                     <?php } ?>
                 </div>
                 
-                <nav>
-                    <!-- Menu -->
-                    <ul id="menu-principal-a">
-                        <?php
-                            wp_nav_menu(
-                                array(
-                                'theme_location' => 'menu-topo',
-                                )
-                            );
-                        ?>
-                    </ul>
-                    
-                    <!-- Burger Menu -->
-                    <a href="javascript:void(0);" class="icon" onclick="burgerMenuAla()">
-                        <i class="fa fa-bars"></i>
-                    </a>
-                </nav>
+                <?php if ( !is_user_logged_in() ) { ?>
+                    <nav>
+                        <!-- Menu -->
+                        <ul id="menu-principal-a">
+                            <?php
+                                wp_nav_menu(
+                                    array(
+                                    'theme_location' => 'menu-topo',
+                                    )
+                                );
+                            ?>
+                        </ul>
+                        
+                        <!-- Burger Menu -->
+                        <a href="javascript:void(0);" class="icon" onclick="burgerMenuAla()">
+                            <i class="fa fa-bars"></i>
+                        </a>
+                    </nav>
+                <?php } else { ?>
+                    <nav>
+                        <!-- Menu -->
+                        <ul id="menu-principal-a">
+                            <?php
+                                wp_nav_menu(
+                                    array(
+                                    'theme_location' => 'menu-topo',
+                                    )
+                                );
+                            ?>
+                        </ul>
+
+                        <ul id="menu-principal-mobile">
+                            <?php
+                                wp_nav_menu(
+                                    array(
+                                    'theme_location' => 'menu_mobile',
+                                    )
+                                );
+                            ?>
+                        </ul>
+                        
+                        <!-- Burger Menu -->
+                        <a href="javascript:void(0);" class="icon" onclick="burgerMenuPro()">
+                            <i class="fa fa-bars"></i>
+                        </a>
+                    </nav>
+                <?php } ?>
             </div>
         </div>
     </header>
