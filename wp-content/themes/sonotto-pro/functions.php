@@ -265,6 +265,27 @@
 
     }
 
+    /* Tornar Post Type "Ajuda" acessível somente para usuários que fizeram login */
+
+    add_action( 'template_redirect', 'redirect_to_login_ajuda' );
+    function redirect_to_login_ajuda() {
+        if ( is_singular( 'ajuda') && !is_user_logged_in() ) {
+            wp_redirect( home_url('/login') );
+                exit;
+        }
+    }
+
+    /* Tornar postagens do blog acessível somente para usuários que fizeram login */
+
+    add_action( 'template_redirect', 'redirect_to_login_blog' );
+
+    function redirect_to_login_blog() {
+        if ( is_singular( 'post') && !is_user_logged_in() ) {
+            wp_redirect( home_url('/login') );
+                exit;
+        }
+    }
+
 
    
 ?>

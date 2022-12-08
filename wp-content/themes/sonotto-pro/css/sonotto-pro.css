@@ -136,6 +136,10 @@ nav li a:hover {
     color: #feeccb;
     border: 2px solid #feeccb;
 }
+.menu-distribuidor .current-menu-item {
+    color: #feeccb;
+    border-bottom: 2px solid #feeccb;
+}
 
 /* Menu Infos */
 
