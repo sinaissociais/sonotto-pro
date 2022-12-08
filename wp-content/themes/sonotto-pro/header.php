@@ -21,6 +21,9 @@
 </head>
 <body>    
     <header>
+        <p>
+            Testando GIT
+        </p>
         <?php if ( ! is_user_logged_in() ) { ?>
             <div class="menu-infos">
                 <div class="container">
