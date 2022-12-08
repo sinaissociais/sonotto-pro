@@ -566,6 +566,14 @@ nav li a:hover {
         line-height: 20px;
       }
 
+    /* Destaque */
+
+    .destaque-servicos-grid {
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-gap: 30px;
+    }
+
     /* Menu Distribuidor */
 
     .menu-pesquisa {
@@ -598,6 +606,7 @@ nav li a:hover {
         justify-content: center;
         color: #feeccb;
         flex-wrap: wrap;
+        gap: 15px;
     }
     #menu-principal {
         background-color: #327343;

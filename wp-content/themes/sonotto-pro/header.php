@@ -31,6 +31,19 @@
                     </div>
                 </div>
             </div>
+        <?php } else { ?>
+            <div class="menu-distribuidor">
+                <div class="container menu-dist-box">
+                    <div>
+                        <?php echo wp_get_current_user()->user_firstname; ?>, você é <strong><?php echo wp_get_current_user()->roles[0] ?> Sonotto Pro</strong>
+                    </div>
+                    <nav class="menu-distribuidor-container">
+                        <!-- wp_nav_menu "distribuidor" -->
+                        <?php wp_nav_menu( array( 'theme_location' => 'distribuidor', 'container' => false, 'menu_class' => 'menu-distribuidor' ) ); ?>
+                    </nav>
+                    <a class="menu-dist-logout" href="<?php echo wp_logout_url( get_permalink() ); ?>/loja">Sair</a>
+                </div>
+            </div>
         <?php } ?>
         <div class="menu-navegacao container flex-box">
             <!-- Logo -->

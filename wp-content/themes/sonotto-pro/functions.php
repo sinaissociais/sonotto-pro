@@ -71,26 +71,6 @@
 
         add_action( 'init', 'distribuicao_registrar_menu_mobile' );
 
-    // Se usuário estiver logado, exibir div no header.php
-    function distribuicao_exibir_menu_usuario_logado() {
-        if ( is_user_logged_in() ) {
-            /* exibir menu 'distribuidor' */
-            echo '<div class="menu-distribuidor">';
-                echo '<div class="container menu-dist-box">';
-                    echo '<div>';
-                        echo ''. wp_get_current_user()->user_firstname . ', você é <strong>'. wp_get_current_user()->roles[0] .'
-                        Sonotto Pro</strong>';
-                    echo '</div>';
-                    echo '<nav>';
-                        wp_nav_menu( array( 'theme_location' => 'distribuidor' ) );
-                    echo '</nav>';
-                    echo '<a class="menu-dist-logout" href="' . wp_logout_url( get_permalink() ) . '/loja">Fazer Logout</a></div>';
-                echo '</div>';
-            echo '</div>';
-        }
-    }
-    add_action( 'wp_head', 'distribuicao_exibir_menu_usuario_logado' );
-
     /* WooCommerce - Esconder o preço e opção de compra (woocommerce_get_price_html) - liberar apenas para usuários logados com permissão "parceiro_distribuidor" ou "administrator" */
 
     function esconder_preco() {
