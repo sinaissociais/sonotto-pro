@@ -105,7 +105,18 @@
     function distribuicao_exibir_mensagem() {
         if ( ! is_user_logged_in() ) {
             echo '<style>.quantidade-titulo {display: none;}</style>';
-            echo '<div class="distribuicao_mensagem_login"><p>Entre com sua <strong>conta de distribuidor</strong> para ver os preços e realizar seus pedidos</p><a href="' . get_home_url() . '/login">Fazer Login</a> </div>';
+            echo '<div class="distribuicao_mensagem_login"><p>Entre com sua <strong>conta de distribuidor</strong> para ver os preços e realizar seus pedidos</p> ';
+            /* formulário de login */
+            echo '<div class="distribuicao_form_login">';
+            echo '<form action="'. get_home_url().'/wp-login.php" method="post">';
+            echo '<input type="text" name="log" placeholder="Usuário" required>';
+            echo '<input type="password" name="pwd" placeholder="Senha" required>';
+            echo '<input type="submit" class="botao-login-produto" value="Entrar">';
+            echo '<input type="hidden" name="redirect_to" value="'. get_permalink() . '">';
+            echo '</form>';
+            echo '';
+            echo '</div>';
+
         }
     }
 

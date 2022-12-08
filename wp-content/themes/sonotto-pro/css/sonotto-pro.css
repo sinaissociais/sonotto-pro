@@ -535,6 +535,27 @@ nav li a:hover {
     display: none;
 }
 
+/* Login */
+
+.distribuicao_mensagem_login .distribuicao_form_login {
+    width: 100%;
+}
+.distribuicao_form_login input[type="submit"] {
+    background-color: #fff7e3 !important;
+    color: #ad924d;
+    font-weight: 500;
+}
+.distribuicao_form_login input[type="submit"]:hover {
+    background-color: #7c672f !important;
+    color: #ffffff;
+}
+.distribuicao_form_login input:focus, textarea:focus {
+    background-color: white;
+    color: #5C5C5C;
+    border: 1px solid var(--cor-complementar-sombra);
+}
+
+
 @media screen and (max-width: 768px) {
     /* Slide */
     .slide-set {
