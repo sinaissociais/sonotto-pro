@@ -219,9 +219,7 @@
 
         function distribuicao_salvar_custom_field_preco_parceiro_distribuidor( $post_id ) {
             $preco_parceiro_distribuidor = $_POST['preco_parceiro_distribuidor'];
-            if ( ! empty( $preco_parceiro_distribuidor ) ) {
-                update_post_meta( $post_id, 'preco_parceiro_distribuidor', esc_attr( $preco_parceiro_distribuidor ) );
-            }
+            update_post_meta( $post_id, 'preco_parceiro_distribuidor', esc_attr( $preco_parceiro_distribuidor ) );
         }
 
         add_action( 'woocommerce_process_product_meta', 'distribuicao_salvar_custom_field_preco_parceiro_distribuidor' );
