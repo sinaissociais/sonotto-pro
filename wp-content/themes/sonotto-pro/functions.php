@@ -200,9 +200,11 @@
                     'placeholder' => '',
                     'desc_tip'    => 'true',
                     'description' => __( 'Insira o preço para o Parceiro Distribuidor', 'woocommerce' ),
+                    /* exibir centavos conforme moeda brasileira */
                     'custom_attributes' => array(
-                        'data-decimal_separator' => wc_get_price_decimal_separator()
-                    )
+                        'step' 	=> 'any',
+                        'min'	=> '0'
+                    )               
                 )
             );
         }
