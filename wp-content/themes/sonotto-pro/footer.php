@@ -77,11 +77,6 @@
         </div>
     </div>
     <div class="footer-box-logo-background"></div>
-    <div class="fsc-certificacao">
-        <p>Procure por produtos certificados FSC®</p>
-        <!-- carregar imagem da pasta imagems -->
-        <img src="<?php echo get_template_directory_uri(); ?>/images/logo/fsc-certificado-sonotto.svg" alt="Selo de certificação FSC® da Sonotto">
-    </div>
 
 </footer>
 <?php wp_footer();?>
