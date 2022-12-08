@@ -24,14 +24,32 @@
     }
     add_action( 'init', 'add_role_parceiro_distribuidor' );
 
-    // Se usuário for Distribuidor, exibir div no header.php
+    // Registrar menu distribuidor
 
-    function is_parceiro_distribuidor() {
-        if ( current_user_can( 'parceiro_distribuidor' ) ) {
-            echo '<div class="distribuidor">' . wp_get_current_user()->user_login . ', você é um distribuidor Sonotto Pro <a href="' . get_home_url() . '/loja">Ir para Loja</a>  | <a href="' . wp_logout_url( get_permalink() ) . '/loja">Fazer Logout</a></div>';
+        function distribuicao_registrar_menu() {
+            register_nav_menu( 'distribuidor', __( 'Menu Distribuidor', 'sonotto-pro' ) );
+        }
+
+        add_action( 'init', 'distribuicao_registrar_menu' );
+
+    // Se usuário estiver logado, exibir div no header.php
+    function distribuicao_exibir_menu_usuario_logado() {
+        if ( is_user_logged_in() ) {
+            /* exibir menu 'distribuidor' */
+            echo '<div class="menu-distribuidor">';
+                echo '<div class="container menu-dist-box">';
+                    echo '<div>';
+                        echo ''. wp_get_current_user()->user_firstname . ', você é um <strong>distribuidor Sonotto Pro</strong>';
+                    echo '</div>';
+                    echo '<nav>';
+                        wp_nav_menu( array( 'theme_location' => 'distribuidor' ) );
+                    echo '</nav>';
+                    echo '<a class="menu-dist-logout" href="' . wp_logout_url( get_permalink() ) . '/loja">Fazer Logout</a></div>';
+                echo '</div>';
+            echo '</div>';
         }
     }
-    add_action( 'wp_head', 'is_parceiro_distribuidor' );
+    add_action( 'wp_head', 'distribuicao_exibir_menu_usuario_logado' );
 
     /* WooCommerce - Esconder o preço e opção de compra (woocommerce_get_price_html) - liberar apenas para usuários logados com permissão "parceiro_distribuidor" ou "administrator" */
 

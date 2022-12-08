@@ -113,6 +113,30 @@ nav li a:hover {
     color: var(--cor-complementar);
 }
 
+/*  Menu distribuidor */
+
+.menu-distribuidor {
+    background: #373737;
+    position: sticky;
+}
+.menu-dist-box {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    color: #feeccb;
+}
+.menu-dist-logout {
+    color: #fff;
+    border: 2px solid #fff;
+    border-radius: 100px;
+    cursor: pointer;
+    padding: 2px 10px;
+}
+.menu-dist-logout:hover {
+    color: #feeccb;
+    border: 2px solid #feeccb;
+}
+
 /* Menu Infos */
 
 .menu-infos {
