@@ -24,6 +24,30 @@
     }
     add_action( 'init', 'add_role_parceiro_distribuidor' );
 
+    // Registrar Tipo de Usuário como "MEI"
+   function add_role_parceiro_mei() {
+        add_role(
+            'parceiro_mei',
+            __( 'MEI' ),
+            array(
+                'read'         => true,  // true allows this capability
+                'edit_posts'   => false,
+                'delete_posts' => false, // Use false to explicitly deny
+            )
+        );
+    }
+    add_action( 'init', 'add_role_parceiro_mei' );
+
+    /* Script para deletar um User Role do Administrador */
+
+        /* function delete_role_parceiro_distribuicao() {
+            remove_role( 'parceiro_distribuicao' );
+        }
+
+        add_action( 'init', 'delete_role_parceiro_distribuicao' ); */
+
+
+
     // Registrar menu distribuidor
 
         function distribuicao_registrar_menu() {
@@ -39,7 +63,8 @@
             echo '<div class="menu-distribuidor">';
                 echo '<div class="container menu-dist-box">';
                     echo '<div>';
-                        echo ''. wp_get_current_user()->user_firstname . ', você é um <strong>distribuidor Sonotto Pro</strong>';
+                        echo ''. wp_get_current_user()->user_firstname . ', você é <strong>'. wp_get_current_user()->roles[0] .'
+                        Sonotto Pro</strong>';
                     echo '</div>';
                     echo '<nav>';
                         wp_nav_menu( array( 'theme_location' => 'distribuidor' ) );
@@ -164,5 +189,80 @@
 
     }
     add_action('wp_enqueue_scripts', 'load_js');
+
+     /* Cria um "Custom Field" no WooCommerce Product para exibir preço para parceiro_distribuidor */
+
+        function distribuicao_criar_custom_field_preco_parceiro_distribuidor() {
+            woocommerce_wp_text_input(
+                array(
+                    'id'          => 'preco_parceiro_distribuidor',
+                    'label'       => __( 'Preço para Parceiro Distribuidor', 'woocommerce' ),
+                    'placeholder' => '',
+                    'desc_tip'    => 'true',
+                    'description' => __( 'Insira o preço para o Parceiro Distribuidor', 'woocommerce' ),
+                    'custom_attributes' => array(
+                        'data-decimal_separator' => wc_get_price_decimal_separator()
+                    )
+                )
+            );
+        }
+
+        add_action( 'woocommerce_product_options_pricing', 'distribuicao_criar_custom_field_preco_parceiro_distribuidor' );
+
+        function distribuicao_salvar_custom_field_preco_parceiro_distribuidor( $post_id ) {
+            $preco_parceiro_distribuidor = $_POST['preco_parceiro_distribuidor'];
+            if ( ! empty( $preco_parceiro_distribuidor ) ) {
+                update_post_meta( $post_id, 'preco_parceiro_distribuidor', esc_attr( $preco_parceiro_distribuidor ) );
+            }
+        }
+
+        add_action( 'woocommerce_process_product_meta', 'distribuicao_salvar_custom_field_preco_parceiro_distribuidor' );
+
+    // Teste
+    //
+
+    // Hooks for simple, grouped, external and variation products
+    add_filter('woocommerce_product_get_price', 'ui_custom_price_role', 99, 2 );
+    add_filter('woocommerce_product_get_regular_price', 'ui_custom_price_role', 99, 2 );
+    add_filter('woocommerce_product_variation_get_regular_price', 'ui_custom_price_role', 99, 2 );
+    add_filter('woocommerce_product_variation_get_price', 'ui_custom_price_role', 99, 2 );
+    function ui_custom_price_role( $price, $product ) {
+        $price = ui_custom_price_handling( $price, $product );  
+        return $price;
+    }
+    
+    // Variable (price range)
+    add_filter('woocommerce_variation_prices_price', 'ui_custom_variable_price', 99, 3 );
+    add_filter('woocommerce_variation_prices_regular_price', 'ui_custom_variable_price', 99, 3 );
+    function ui_custom_variable_price( $price, $variation, $product ) {
+        $price = ui_custom_price_handling( $price, $product );  
+        return $price;
+    }
+    
+    //the magic happens here
+    function ui_custom_price_handling($price, $product) {
+    // Delete product cached price, remove comment if needed
+    //wc_delete_product_transients($variation->get_id());
+    
+    //get our current user
+    $current_user = wp_get_current_user();
+    
+    //check if the user role is the role we want
+    if ( isset( $current_user->roles[0] ) && '' != $current_user->roles[0] && in_array( 'parceiro_distribuidor',  $current_user->roles ) ) {
+        
+        //load the custom price for our product
+        $custom_price = get_post_meta( $product->get_id(), 'preco_parceiro_distribuidor', true );
+        
+        //if there is a custom price, apply it
+        if ( ! empty($custom_price) ) {
+            $price = $custom_price;
+        }
+    }
+    
+    return $price;
+
+    }
+
+
    
 ?>
