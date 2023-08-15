@@ -290,6 +290,33 @@
         }
     }
 
+    // Remover a Tag de preços do SEO Google - WooCommerce
+
+    function custom_remove_price_from_google_search( $data ) {
+    // Verifica se a página é um produto individual do WooCommerce
+        if ( is_singular( 'product' ) ) {
+            // Remove a tag de meta que exibe o preço
+            unset( $data['offer'] );
+        }
+        return $data;
+    }
+    add_filter( 'woocommerce_structured_data_product_offer', 'custom_remove_price_from_google_search' );
+
+    
+    // Remove o "price" para usuários não logados no site
+
+    function custom_modify_structured_data( $markup, $product ) {
+    // Verifica se o usuário está logado
+        if ( is_user_logged_in() ) {
+            return $markup; // Mantém os dados inalterados
+        } else {
+            // Remove a informação de preço do contexto "@context"
+            $markup = preg_replace('/,"price":{.*?}}/s', '', $markup);
+            return $markup;
+        }
+    }
+    add_filter( 'woocommerce_structured_data_product', 'custom_modify_structured_data', 10, 2 );
+
 
    
 ?>
